@@ -9,6 +9,7 @@ const providers = compose(
     'setUser',
     global.localStorage.token && jwt(global.localStorage.token)
   ),
+
   withState('Modal', 'setModal', null)
 )()
 
@@ -20,13 +21,16 @@ export const withAuth = compose(
       setUser
     }
   }),
+
   withHandlers({
-    login: ({ setUser }) => async (email, password) => {
+    login: ({ setUser }) => (email, password) => new Promise((resolve, reject) => {
       // normally this would call out to a server, but this is a no-server demo
-      const { user, token } = await demoLogin(email, password)
+      const { user, token } = demoLogin(email, password)
       global.localStorage.token = token
       setUser(user)
-    },
+      resolve(user)
+    }),
+
     logout: ({ setUser }) => () => {
       global.localStorage.removeItem('token')
       setUser(null)
@@ -42,6 +46,7 @@ export const withModal = compose(
       setModal
     }
   }),
+
   withHandlers({
     modalShow: ({ setModal }) => modal => {
       console.log('MODAL', modal)
