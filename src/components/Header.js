@@ -28,7 +28,7 @@ const P = compose(
     onLoginClick: ({ modalShow, onSubmit, onClickCancel }) => e => {
       e.preventDefault()
       e.stopPropagation()
-      console.log('LOGIN MODAL')
+      // JSX seems to cause problems here
       modalShow(ModalLogin({onSubmit, onClickCancel}))
     },
 
