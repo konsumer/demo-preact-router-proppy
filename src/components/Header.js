@@ -14,7 +14,10 @@ const P = compose(
     onSubmit: ({ login, modalHide }) => e => {
       e.preventDefault()
       e.stopPropagation()
-      console.log(e.target)
+      login(e.target.email.value, e.target.password.value).then(() => {
+        modalHide()
+        route('/')
+      })
     },
 
     onClickCancel: ({ modalHide }) => e => {
@@ -42,6 +45,7 @@ const P = compose(
     onSecretModalClick: ({ modalShow, modalHide }) => e => {
       e.preventDefault()
       e.stopPropagation()
+      alert('Secret modal will be here.')
     }
   })
 )
@@ -59,8 +63,8 @@ const Header = ({ user, Modal, onLoginClick, onLogoutClick, onSecretModalClick }
     {!!user && (
       <nav>
         <Link activeClassName='active' href='/'>DASHBOARD</Link>
-        <a href='/modal' onClick={onSecretModalClick}>LOGOUT</a>
-        <a href='/login' onClick={onLogoutClick}>LOGOUT</a>
+        <a href='/modal' onClick={onSecretModalClick}>SECRET MODAL</a>
+        <a href='/logout' onClick={onLogoutClick}>LOGOUT</a>
       </nav>
     )}
     {!!Modal && (

@@ -28,6 +28,10 @@ const App = () => (
   </ProppyProvider>
 )
 
+// when global state chnages, render app
 if (typeof window !== 'undefined') {
-  render(<App />, document.body, document.body.firstChild)
+  providers.subscribe(props => {
+    console.log('PROVIDERS', props)
+    render(<App />, document.body)
+  })
 }
