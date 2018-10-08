@@ -29,7 +29,7 @@ const P = compose(
       e.preventDefault()
       e.stopPropagation()
       console.log('LOGIN MODAL')
-      modalShow(<ModalLogin onSubmit={onSubmit} onClickCancel={onClickCancel} />)
+      modalShow(ModalLogin({onSubmit, onClickCancel}))
     },
 
     onLogoutClick: ({ logout }) => e => {

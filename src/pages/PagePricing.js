@@ -1,6 +1,7 @@
 const PagePricing = () => (
   <section>
-    PRICING
+    <h2>PRICING</h2>
+    <p>This should be available to all routers, but only show in non-authenticated menus.</p>
   </section>
 )
 

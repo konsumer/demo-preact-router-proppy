@@ -5,13 +5,14 @@ import Router from 'preact-router'
 
 import providers from './providers'
 import Header from './components/Header'
+import Footer from './components/Footer'
 import PageHome from './pages/PageHome'
 import PagePricing from './pages/PagePricing'
 import PageDashboard from './pages/PageDashboard'
 
 const App = () => (
   <ProppyProvider providers={providers}>
-    <div>
+    <div className='App'>
       <Header />
       <main>
         <Router>
@@ -22,6 +23,7 @@ const App = () => (
           <PagePricing key='pricing' path='/pricing' />
         </Router>
       </main>
+      <Footer />
     </div>
   </ProppyProvider>
 )

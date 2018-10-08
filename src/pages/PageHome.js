@@ -1,6 +1,7 @@
 const PageHome = () => (
   <section>
-    HOME
+    <h2>HOME</h2>
+    <p>You are not authenticated.  Login to see your dashboard.</p>
   </section>
 )
 
