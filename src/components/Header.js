@@ -1,3 +1,5 @@
+/** @jsx h */
+import { h } from 'preact'
 import { compose, withHandlers } from 'proppy'
 import { attach } from 'proppy-preact'
 import { Link } from 'preact-router/match'
@@ -32,7 +34,7 @@ const P = compose(
       e.preventDefault()
       e.stopPropagation()
       // JSX seems to cause problems here
-      modalShow(ModalLogin({onSubmit, onClickCancel}))
+      modalShow(ModalLogin({ onSubmit, onClickCancel }))
     },
 
     onLogoutClick: ({ logout }) => e => {
@@ -45,7 +47,7 @@ const P = compose(
     onSecretModalClick: ({ modalShow, modalHide }) => e => {
       e.preventDefault()
       e.stopPropagation()
-      alert('Secret modal will be here.')
+      window.alert('Secret modal will be here.')
     }
   })
 )

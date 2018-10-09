@@ -1,4 +1,6 @@
-import { compose, withHandlers } from 'proppy'
+/** @jsx h */
+import { h } from 'preact'
+import { compose } from 'proppy'
 import { attach } from 'proppy-preact'
 
 import { withAuth } from '../providers'

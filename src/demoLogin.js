@@ -38,7 +38,7 @@ function sign (data, key) {
     },
     { // this is the algorithm options
       name: 'HMAC',
-      hash: {name: 'SHA-256'} // can be "SHA-1", "SHA-256", "SHA-384", or "SHA-512"
+      hash: { name: 'SHA-256' } // can be "SHA-1", "SHA-256", "SHA-384", or "SHA-512"
       // length: 256, //optional, if you want your key length to differ from the hash function's block length
     },
     true, // whether the key is extractable (i.e. can be used in exportKey)

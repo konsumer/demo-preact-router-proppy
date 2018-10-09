@@ -1,3 +1,6 @@
+/** @jsx h */
+import { h } from 'preact'
+
 const PageHome = () => (
   <section>
     <h2>HOME</h2>

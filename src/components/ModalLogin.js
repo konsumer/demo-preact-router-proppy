@@ -1,3 +1,6 @@
+/** @jsx h */
+import { h } from 'preact'
+
 const ModalLogin = ({ onSubmit, onClickCancel }) => (
   <form onSubmit={onSubmit}>
     <h2>Login</h2>

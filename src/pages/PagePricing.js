@@ -1,3 +1,6 @@
+/** @jsx h */
+import { h } from 'preact'
+
 const PagePricing = () => (
   <section>
     <h2>PRICING</h2>
