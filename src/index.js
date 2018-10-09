@@ -11,10 +11,6 @@ import PageHome from './pages/PageHome'
 import PagePricing from './pages/PagePricing'
 import PageDashboard from './pages/PageDashboard'
 
-import { createContext } from 'preact-context'
-const ProppyContext = createContext('proppy')
-console.log('ProppyContext', ProppyContext)
-
 const App = () => (
   <ProppyProvider providers={providers}>
     <div className='App'>
