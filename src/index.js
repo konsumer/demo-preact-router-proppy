@@ -1,5 +1,5 @@
 /** @jsx h */
-import { h } from 'preact'
+import { h, render } from 'preact'
 import { ProppyProvider } from 'proppy-preact'
 import Router from 'preact-router'
 
@@ -30,3 +30,7 @@ const App = () => (
 )
 
 export default App
+
+if (typeof window !== 'undefined') {
+  render(<App />, document.body, document.body.firstChild)
+}
