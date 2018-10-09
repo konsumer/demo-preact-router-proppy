@@ -54,7 +54,7 @@ const P = compose(
 
 const Header = ({ user, Modal, onLoginClick, onLogoutClick, onSecretModalClick }) => (
   <header>
-    <h1>Site Name</h1>
+    <h1><Link href='/'>Site Name</Link></h1>
     {!user && (
       <nav>
         <Link activeClassName='active' href='/'>HOME</Link>
