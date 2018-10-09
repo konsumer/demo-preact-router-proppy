@@ -33,8 +33,6 @@ const App = () => (
 if (typeof window !== 'undefined') {
   providers.subscribe(props => {
     console.log('PROVIDERS', props)
-    render(<App />, document.body)
+    render(<App />, document.body, document.body.lastChild)
   })
 }
-
-export default App

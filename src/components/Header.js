@@ -5,13 +5,13 @@ import { attach } from 'proppy-preact'
 import { Link } from 'preact-router/match'
 import { route } from 'preact-router'
 
-import { withAuth, withModal } from '../providers'
+import { withAuth, withModal, withInfo } from '../providers'
 import ModalLogin from './ModalLogin'
 
 const P = compose(
   withAuth,
   withModal,
-
+  withInfo,
   withHandlers({
     onSubmit: ({ login, modalHide }) => e => {
       e.preventDefault()
@@ -52,9 +52,9 @@ const P = compose(
   })
 )
 
-const Header = ({ user, Modal, onLoginClick, onLogoutClick, onSecretModalClick }) => (
+const Header = ({ user, Modal, info, onLoginClick, onLogoutClick, onSecretModalClick }) => (
   <header>
-    <h1><Link href='/'>Site Name</Link></h1>
+    <h1 style={{backgroundImage: `url(${info.icon})`}}><Link href='/'>{info.name}</Link></h1>
     {!user && (
       <nav>
         <Link activeClassName='active' href='/'>HOME</Link>

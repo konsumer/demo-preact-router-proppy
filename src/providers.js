@@ -10,8 +10,18 @@ const providers = compose(
     global.localStorage.token && jwt(global.localStorage.token)
   ),
 
-  withState('Modal', 'setModal', null)
+  withState('Modal', 'setModal', null),
+
+  withState('info', 'setInfo', {
+    name: 'Demo',
+    icon: '/favicon.ico'
+  })
 )()
+
+// HOC that adds info
+export const withInfo = withProps((props, { props: { info } }) => {
+  return { info }
+})
 
 // HOC that adds user, login, & logout
 export const withAuth = compose(
@@ -49,12 +59,10 @@ export const withModal = compose(
 
   withHandlers({
     modalShow: ({ setModal }) => modal => {
-      console.log('MODAL', modal)
       setModal(modal)
     },
     modalHide: ({ setModal }) => () => {
-      console.log('MODAL HIDE')
-      setModal(null)
+      setModal(false)
     }
   })
 )
