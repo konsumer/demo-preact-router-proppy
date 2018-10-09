@@ -1,5 +1,5 @@
 /** @jsx h */
-import { render, h } from 'preact'
+import { h } from 'preact'
 import { ProppyProvider } from 'proppy-preact'
 import Router from 'preact-router'
 
@@ -29,10 +29,4 @@ const App = () => (
   </ProppyProvider>
 )
 
-// when global state chnages, render app
-if (typeof window !== 'undefined') {
-  providers.subscribe(props => {
-    console.log('PROVIDERS', props)
-    render(<App />, document.body, document.body.lastChild)
-  })
-}
+export default App

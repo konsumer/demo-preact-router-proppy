@@ -7,7 +7,7 @@ const providers = compose(
   withState(
     'user',
     'setUser',
-    global.localStorage.token && jwt(global.localStorage.token)
+    null
   ),
 
   withState('Modal', 'setModal', null),
@@ -17,6 +17,10 @@ const providers = compose(
     icon: '/favicon.ico'
   })
 )()
+
+if (typeof window !== 'undefined' && window.localStorage.token) {
+  providers.props.setUser(jwt(window.localStorage.token))
+}
 
 // HOC that adds info
 export const withInfo = withProps((props, { props: { info } }) => {
@@ -36,13 +40,13 @@ export const withAuth = compose(
     login: ({ setUser }) => (email, password) => new Promise((resolve, reject) => {
       // normally this would call out to a server, but this is a no-server demo
       const { user, token } = demoLogin(email, password)
-      global.localStorage.token = token
+      window.localStorage.token = token
       setUser(user)
       resolve(user)
     }),
 
     logout: ({ setUser }) => () => {
-      global.localStorage.removeItem('token')
+      window.localStorage.removeItem('token')
       setUser(null)
     }
   })
